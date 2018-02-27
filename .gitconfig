@@ -4,6 +4,7 @@
 	s = status
 	sclone = clone --depth=1
 	amend = commit --amend --all
+	undocommit = reset HEAD~
 	hreset = reset --hard
 	co = checkout
 	df = diff --color --color-words --abbrev
@@ -13,6 +14,7 @@
 	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 
 	reup = rebase-update # depot_tools specific
+	git = !exec git
 
 [core]
 	excludesfile = ~/.gitignore
@@ -29,7 +31,7 @@
 
 # so much color
 [color]
-	ui = always
+	ui = auto
 [color "diff"]
 	meta = yellow bold
 	commit = green bold
@@ -102,3 +104,5 @@
 	fetch = +refs/heads/*:refs/remotes/origin/*
 [stash]
 	showPatch = true
+[log]
+	date = relative
